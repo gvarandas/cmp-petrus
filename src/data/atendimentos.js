@@ -1,0 +1,58 @@
+const atendimentos = [
+  {
+    nome: 'SAMANTA PORTUGUEZ DE SOUZA GOMES',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'finalizado',
+  },
+  {
+    nome: 'ANA PAULA PRESTES DA COSTA',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'pagamento',
+  },
+  {
+    nome: 'RENATA RODRIGUES ABELHA',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'acompanhamento',
+  },
+  {
+    nome: 'ANA PAULA PRESTES DA COSTA 2',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'pagamento',
+  },
+  {
+    nome: 'ANA PAULA PRESTES DA COSTA 3',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'pagamento',
+  },
+  {
+    nome: 'SAMANTA PORTUGUEZ DE SOUZA GOMES 2',
+    inicioPreNatal: '02/03/2017',
+    dum: '02/03/2017',
+    dpp: '07/12/2017',
+    consulta: '07/04/2017',
+    agendamento: '07/03/2017',
+    status: 'finalizado',
+  },
+];
+
+export default atendimentos;

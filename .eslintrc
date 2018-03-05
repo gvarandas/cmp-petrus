@@ -25,6 +25,7 @@
       {
         "consistent": true
       }
-    ]
+    ],
+    "function-paren-newline": 0
   }
 }

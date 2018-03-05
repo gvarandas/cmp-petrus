@@ -9,18 +9,24 @@ import ReduxPromise from 'redux-promise';
 import reducers from './reducers';
 
 // Routes
-import Home from './components/home';
-import Agenda from './components/agenda';
+import Home from './pages/home';
+import Agenda from './pages/agenda';
+
+// Components
+import NavBar from './components/navbar';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-      <Switch>
-        <Route path="/agenda" component={Agenda} />
-        <Route path="/" component={Home} />
-      </Switch>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route path="/agenda" component={Agenda} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </div>
     </BrowserRouter>
   </Provider>
   , document.querySelector('#root'),

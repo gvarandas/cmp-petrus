@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import ListaAgendamentos from './lista-agendamentos';
 import AtendimentosRealizados from './atendimentos-realizados';
@@ -8,13 +8,6 @@ class Agenda extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-2 offset-10 align-items-end">
-            <Link className="btn btn-primary" to="/">
-              Back
-            </Link>
-          </div>
-        </div>
         <div className="row">
           <div className="col-4">
             <select defaultValue="" className="form-control">
