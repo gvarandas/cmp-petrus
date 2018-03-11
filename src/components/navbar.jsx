@@ -10,6 +10,7 @@ class NavBar extends Component {
     this.navLinks = [
       { name: 'Home', link: '/' },
       { name: 'Agenda', link: '/agenda' },
+      { name: 'Pacientes', link: '/pacientes' },
     ];
   }
   renderLink() {

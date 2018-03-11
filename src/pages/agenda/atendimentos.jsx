@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
+import PacientesMock from '../../data/pacientes';
 import AtendimentosMock from '../../data/atendimentos';
+import AcompanhamentoMock from '../../data/acompanhamentos';
 
-class AtendimentosRealizados extends Component {
+class Atendimentos extends Component {
   constructor(props) {
     super(props);
-    this.pacientes = AtendimentosMock;
+    this.atendimentos = AtendimentosMock;
   }
 
   renderStatus(status) {
     switch (status) {
       case 'finalizado':
-        return <span className="badge badge-success">OK</span>;
+        return <span className="badge badge-success">Finalizado</span>;
       case 'pagamento':
         return <span className="badge badge-warning">Pagamento</span>;
       case 'acompanhamento':
@@ -21,15 +24,21 @@ class AtendimentosRealizados extends Component {
     }
   }
 
-  renderInfoAtendimento({ nome, inicioPreNatal, dum, dpp, status }) {
+  renderInfoAtendimento({ pacienteId, acompanhamentoId, inicioPreNatal, dum, dpp, data }) {
+    const paciente = PacientesMock[pacienteId];
+    const acompanhamento = AcompanhamentoMock[acompanhamentoId];
     return (
-      <tr key={nome}>
-        <td>{nome}</td>
+      <tr key={`${pacienteId} - ${acompanhamentoId} - ${data}`}>
+        <td>
+          <Link className="btn btn-link" to={`/acompanhamento/${acompanhamentoId}`}>
+            {paciente.nome}
+          </Link>
+        </td>
         <td className="text-center">{dum}</td>
         <td className="text-center">{dpp}</td>
         <td className="text-center">{inicioPreNatal}</td>
         <td className="text-center">
-          {this.renderStatus(status)}
+          {this.renderStatus(acompanhamento.status)}
         </td>
       </tr>
     );
@@ -39,7 +48,7 @@ class AtendimentosRealizados extends Component {
     return (
       <div className="container mt-3 py-4">
         <div className="row">
-          <h1>Atendimentos Realizados</h1>
+          <h1>Atendimentos</h1>
         </div>
         <div className="row my-3">
           <table className="table table-striped">
@@ -53,7 +62,7 @@ class AtendimentosRealizados extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.pacientes.map(paciente => this.renderInfoAtendimento(paciente))}
+              {Object.keys(this.atendimentos).map(atendimentoId => this.renderInfoAtendimento(this.atendimentos[atendimentoId]))}
             </tbody>
           </table>
         </div>
@@ -62,4 +71,4 @@ class AtendimentosRealizados extends Component {
   }
 }
 
-export default AtendimentosRealizados;
+export default Atendimentos;

@@ -11,6 +11,9 @@ import reducers from './reducers';
 // Routes
 import Home from './pages/home';
 import Agenda from './pages/agenda';
+import Pacientes from './pages/pacientes';
+import DetalhePaciente from './pages/detalhe-paciente';
+import DetalheAcompanhamento from './pages/detalhe-acompanhamento';
 
 // Components
 import NavBar from './components/navbar';
@@ -23,6 +26,9 @@ ReactDOM.render(
       <div>
         <NavBar />
         <Switch>
+          <Route path="/paciente/:id" component={DetalhePaciente} />
+          <Route path="/pacientes" component={Pacientes} />
+          <Route path="/acompanhamento/:id" component={DetalheAcompanhamento} />
           <Route path="/agenda" component={Agenda} />
           <Route path="/" component={Home} />
         </Switch>

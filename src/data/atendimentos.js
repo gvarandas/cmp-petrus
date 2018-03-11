@@ -1,58 +1,44 @@
-const atendimentos = [
-  {
-    nome: 'SAMANTA PORTUGUEZ DE SOUZA GOMES',
+const atendimentos = {
+  1: {
+    pacienteId: 4,
+    acompanhamentoId: 1,
     inicioPreNatal: '02/03/2017',
     dum: '02/03/2017',
     dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'finalizado',
+    data: '07/04/2017',
   },
-  {
-    nome: 'ANA PAULA PRESTES DA COSTA',
+  2: {
+    pacienteId: 4,
+    acompanhamentoId: 1,
     inicioPreNatal: '02/03/2017',
     dum: '02/03/2017',
     dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'pagamento',
+    data: '07/08/2017',
   },
-  {
-    nome: 'RENATA RODRIGUES ABELHA',
+  3: {
+    pacienteId: 6,
+    acompanhamentoId: 2,
     inicioPreNatal: '02/03/2017',
     dum: '02/03/2017',
     dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'acompanhamento',
+    data: '07/04/2017',
   },
-  {
-    nome: 'ANA PAULA PRESTES DA COSTA 2',
+  4: {
+    pacienteId: 6,
+    acompanhamentoId: 2,
     inicioPreNatal: '02/03/2017',
     dum: '02/03/2017',
     dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'pagamento',
+    data: '07/08/2017',
   },
-  {
-    nome: 'ANA PAULA PRESTES DA COSTA 3',
+  5: {
+    pacienteId: 2,
+    acompanhamentoId: 3,
     inicioPreNatal: '02/03/2017',
     dum: '02/03/2017',
     dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'pagamento',
+    data: '07/04/2017',
   },
-  {
-    nome: 'SAMANTA PORTUGUEZ DE SOUZA GOMES 2',
-    inicioPreNatal: '02/03/2017',
-    dum: '02/03/2017',
-    dpp: '07/12/2017',
-    consulta: '07/04/2017',
-    agendamento: '07/03/2017',
-    status: 'finalizado',
-  },
-];
+};
 
 export default atendimentos;

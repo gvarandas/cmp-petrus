@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 
-import ListaAgendamentos from './lista-agendamentos';
-import AtendimentosRealizados from './atendimentos-realizados';
+import Agendamentos from './agendamentos';
+import Atendimentos from './atendimentos';
 
 class Agenda extends Component {
   render() {
@@ -19,8 +19,8 @@ class Agenda extends Component {
           </div>
         </div>
         <div className="row">
-          <ListaAgendamentos />
-          <AtendimentosRealizados />
+          <Agendamentos />
+          <Atendimentos />
         </div>
       </div>
     );

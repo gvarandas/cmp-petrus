@@ -1,20 +1,20 @@
 const agendamentos = [
   {
-    nome: 'ADRIANA SABOIA GRUBER',
+    pacienteId: 1,
     dum: '02/03/2017',
     dpp: '07/12/2017',
     consulta: '07/04/2017',
     agendamento: '07/03/2017',
   },
   {
-    nome: 'LAIS GUIMARAES GOMES',
+    pacienteId: 2,
     dum: '02/03/2017',
     dpp: '07/12/2017',
     consulta: '07/04/2017',
     agendamento: '07/03/2017',
   },
   {
-    nome: 'LIVIA KNOP HENRIQUE MODESTO',
+    pacienteId: 3,
     dum: '02/03/2017',
     dpp: '07/12/2017',
     consulta: '07/04/2017',
