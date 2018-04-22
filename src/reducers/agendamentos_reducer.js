@@ -1,19 +1,21 @@
-import _ from 'lodash';
-
-import { FETCH_POSTS } from '../actions';
+import { ADD_AGENDAMENTO } from '../actions/agendamentos';
 
 // This reducer is responsible for the posts state
-export default function (state = {}, action) {
+export default function (agendamentos = [], action) {
   switch (action.type) {
-    case FETCH_POSTS:
+    case ADD_AGENDAMENTO:
       if (action.payload) {
-        const { data } = action.payload;
-        const newState = _.mapKeys(data, 'id');
-        console.log('newState', newState);
-        return newState;
+        const { agendamento: agendamentoPayload } = action.payload;
+        const hoje = new Date();
+        const novoAgendamento = { ...agendamentoPayload, agendamento: `${hoje.getDay()}-${hoje.getMonth()}-${hoje.getFullYear()}` };
+        const novosAgendamentos = [
+          ...agendamentos,
+          novoAgendamento,
+        ];
+        return novosAgendamentos;
       }
-      return state;
+      return agendamentos;
     default:
-      return state;
+      return agendamentos;
   }
 }

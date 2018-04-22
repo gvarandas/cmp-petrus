@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
 
 import AcompanhamentosReducer from './acompanhamentos_reducer';
 import AtendimentosReducer from './atendimentos_reducer';
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   atendimentos: AtendimentosReducer,
   acompanhamentos: AcompanhamentosReducer,
   pacientes: PacientesReducer,
+  form,
 });
 
 export default rootReducer;

@@ -38,6 +38,7 @@ class Atendimentos extends Component {
             {paciente.nome}
           </Link>
         </td>
+        <td className="text-center">{data}</td>
         <td className="text-center">{dum}</td>
         <td className="text-center">{dpp}</td>
         <td className="text-center">{inicioPreNatal}</td>
@@ -59,9 +60,10 @@ class Atendimentos extends Component {
             <thead>
               <tr>
                 <th>Nome da Paciente</th>
-                <th className="text-center">Início do Pré Natal</th>
+                <th className="text-center">Atendimento</th>
                 <th className="text-center">DUM</th>
                 <th className="text-center">DPP</th>
+                <th className="text-center">Pré Natal</th>
                 <th className="text-center">Status</th>
               </tr>
             </thead>
