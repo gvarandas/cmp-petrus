@@ -33,7 +33,7 @@ class AgendarPaciente extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, reset } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -72,7 +72,18 @@ class AgendarPaciente extends Component {
             type="date"
           />
         </div>
-        <button className="btn btn-primary" type="submit">Agendar</button>
+        <div className="form-row">
+          <div className="col">
+            <button className="btn btn-primary" type="submit">
+              Agendar
+            </button>
+          </div>
+          <div className="col">
+            <button className="btn btn-secondary" type="button" onClick={reset}>
+              Reiniciar
+            </button>
+          </div>
+        </div>
       </form>
     );
   }
