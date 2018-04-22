@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import AgendamentosMock from '../../data/agendamentos';
-import PacientesMock from '../../data/pacientes';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class ListaAgendamentos extends Component {
-  constructor(props) {
-    super(props);
-    this.agendamentos = AgendamentosMock;
-  }
-
   renderInfoAgendamento({ pacienteId, dum, dpp, consulta, agendamento }) {
-    const paciente = PacientesMock[pacienteId];
+    const paciente = this.props.pacientes[pacienteId];
     return (
       <tr key={pacienteId}>
         <td>{paciente.nome}</td>
@@ -39,7 +34,7 @@ class ListaAgendamentos extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.agendamentos.map(agendamento => this.renderInfoAgendamento(agendamento))}
+              {this.props.agendamentos.map(agendamento => this.renderInfoAgendamento(agendamento))}
             </tbody>
           </table>
         </div>
@@ -48,4 +43,14 @@ class ListaAgendamentos extends Component {
   }
 }
 
-export default ListaAgendamentos;
+ListaAgendamentos.propTypes = {
+  agendamentos: PropTypes.array.isRequired,
+  pacientes: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  agendamentos: state.agendamentos,
+  pacientes: state.pacientes,
+});
+
+export default connect(mapStateToProps)(ListaAgendamentos);

@@ -15,13 +15,28 @@ import Pacientes from './pages/pacientes';
 import DetalhePaciente from './pages/detalhe-paciente';
 import DetalheAcompanhamento from './pages/detalhe-acompanhamento';
 
+// Data
+import acompanhamentos from './data/acompanhamentos';
+import agendamentos from './data/agendamentos';
+import atendimentos from './data/atendimentos';
+import pacientes from './data/pacientes';
+
 // Components
 import NavBar from './components/navbar';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
+const initialState = {
+  acompanhamentos,
+  agendamentos,
+  atendimentos,
+  pacientes,
+};
+
+const store = createStoreWithMiddleware(reducers, initialState);
+
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter>
       <div>
         <NavBar />

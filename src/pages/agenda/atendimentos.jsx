@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import PacientesMock from '../../data/pacientes';
-import AtendimentosMock from '../../data/atendimentos';
-import AcompanhamentoMock from '../../data/acompanhamentos';
 
 class Atendimentos extends Component {
   constructor(props) {
     super(props);
-    this.atendimentos = AtendimentosMock;
+    this.renderAtendimentos = this.renderAtendimentos.bind(this);
   }
 
   renderStatus(status) {
@@ -24,9 +22,15 @@ class Atendimentos extends Component {
     }
   }
 
+  renderAtendimentos() {
+    const atendimentoIds = Object.keys(this.props.atendimentos);
+    return atendimentoIds.map(atendimentoId => this.renderInfoAtendimento(this.props.atendimentos[atendimentoId]));
+  }
+
   renderInfoAtendimento({ pacienteId, acompanhamentoId, inicioPreNatal, dum, dpp, data }) {
-    const paciente = PacientesMock[pacienteId];
-    const acompanhamento = AcompanhamentoMock[acompanhamentoId];
+    const paciente = this.props.pacientes[pacienteId];
+    const acompanhamento = this.props.acompanhamentos[acompanhamentoId];
+
     return (
       <tr key={`${pacienteId} - ${acompanhamentoId} - ${data}`}>
         <td>
@@ -62,7 +66,7 @@ class Atendimentos extends Component {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(this.atendimentos).map(atendimentoId => this.renderInfoAtendimento(this.atendimentos[atendimentoId]))}
+              {this.renderAtendimentos()}
             </tbody>
           </table>
         </div>
@@ -71,4 +75,16 @@ class Atendimentos extends Component {
   }
 }
 
-export default Atendimentos;
+Atendimentos.propTypes = {
+  atendimentos: PropTypes.object.isRequired,
+  pacientes: PropTypes.object.isRequired,
+  acompanhamentos: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  atendimentos: state.atendimentos,
+  pacientes: state.pacientes,
+  acompanhamentos: state.acompanhamentos,
+});
+
+export default connect(mapStateToProps)(Atendimentos);

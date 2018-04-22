@@ -1,13 +1,7 @@
-// import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { fetchPosts } from '../../actions';
-
-import AcompanhamentosMock from '../../data/acompanhamentos';
-import PacientesMock from '../../data/pacientes';
 
 class DetalheAcompanhamento extends Component {
   constructor(props) {
@@ -18,8 +12,8 @@ class DetalheAcompanhamento extends Component {
   render() {
     const acompanhamentoId = this.props.match.params.id;
     if (!this.acompanhamento || this.acompanhamento.id !== acompanhamentoId) {
-      this.acompanhamento = AcompanhamentosMock[acompanhamentoId];
-      this.paciente = PacientesMock[this.acompanhamento.pacienteId];
+      this.acompanhamento = this.props.acompanhamentos[acompanhamentoId];
+      this.paciente = this.props.pacientes[this.acompanhamento.pacienteId];
     }
 
     const { inicioPreNatal, dum, dpp, parto, bebe, pagamento } = this.acompanhamento;
@@ -85,7 +79,14 @@ class DetalheAcompanhamento extends Component {
 }
 
 DetalheAcompanhamento.propTypes = {
+  pacientes: PropTypes.object.isRequired,
+  acompanhamentos: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
 };
 
-export default DetalheAcompanhamento;
+const mapStateToProps = state => ({
+  acompanhamentos: state.acompanhamentos,
+  pacientes: state.pacientes,
+});
+
+export default connect(mapStateToProps)(DetalheAcompanhamento);

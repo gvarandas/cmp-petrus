@@ -1,12 +1,7 @@
-// import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-// import { fetchPosts } from '../../actions';
-
-import Pacientes from '../../data/pacientes';
 
 class DetalhePaciente extends Component {
   constructor(props) {
@@ -17,13 +12,13 @@ class DetalhePaciente extends Component {
   render() {
     const pacienteID = this.props.match.params.id;
     if (!this.paciente || this.paciente.id !== pacienteID) {
-      this.paciente = Pacientes[pacienteID];
+      this.paciente = this.props.pacientes[pacienteID];
     }
 
     return (
       <div className="container">
         <div className="row">
-          <Link className="btn btn-link" to="/agenda">
+          <Link className="btn btn-link" to="/pacientes">
             &lt; Voltar
           </Link>
         </div>
@@ -44,7 +39,12 @@ class DetalhePaciente extends Component {
 }
 
 DetalhePaciente.propTypes = {
+  pacientes: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
 };
 
-export default DetalhePaciente;
+const mapStatetoProps = state => ({
+  pacientes: state.pacientes,
+});
+
+export default connect(mapStatetoProps)(DetalhePaciente);
